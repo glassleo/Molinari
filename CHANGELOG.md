@@ -1,3 +1,11 @@
+### Changes in 100000.89-Release:
+
+- Fixed: More errors on non-bag items
+
+### Changes in 100000.88-Release:
+
+- Fixed: Errors on non-bag items
+
 ### Changes in 100000.87-Release:
 
 - Changed: Update LibProcessable embed
