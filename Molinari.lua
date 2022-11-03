@@ -103,17 +103,17 @@ function Molinari:GetBagAndSlotID()
 	end
 
 	local bagID, slotID
-	if parent and parent.GetSlotAndBagID then
+	if parent.GetSlotAndBagID then
 		-- this is the preferred API to use, added in Dragonflight, as it's 100% accurate
 		slotID, bagID = parent:GetSlotAndBagID()
-	elseif parent and parent.GetBagID then
+	elseif parent.GetBagID then
 		-- the above is preferred
 		bagID = parent:GetBagID()
 		slotID = parent:GetID()
-	elseif parent:GetParent() then
+	else
 		-- this is a complete guesswork, bag addons should implement one of the two above APIs
-		bagID = parent and parent:GetParent() and parent:GetParent():GetID()
-		slotID = parent and parent:GetID()
+		bagID = parent:GetParent() and parent:GetParent():GetID()
+		slotID = parent:GetID()
 	end
 
 	if bagID and bagID >= 0 and slotID and slotID >= 0 then
